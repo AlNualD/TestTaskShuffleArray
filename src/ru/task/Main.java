@@ -1,5 +1,6 @@
 package ru.task;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +8,13 @@ public class Main {
     public static void main(String[] args) {
 
         int n = readNumber(); //читаем размер массива
+        ArrayList<Integer> integerArrayList = new ArrayList<>(n);
+        for (int i = 1; i <= n; i++) {
+            integerArrayList.add(i);
+        }
+        integerArrayList.forEach(x -> System.out.print(x + " "));
+        System.out.print("");
+
 
     }
 
