@@ -1,6 +1,8 @@
 package ru.task;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -12,10 +14,50 @@ public class Main {
         for (int i = 1; i <= n; i++) {
             integerArrayList.add(i);
         }
+
+        printArrayList(integerArrayList);
+
+        Random random = new Random();
+        int deletePos = random.nextInt(n);
+        integerArrayList.remove(deletePos);
+
+        printArrayList(integerArrayList);
+
+
+        ArrayList<Integer> shuffledArray = shuffleArray(integerArrayList);
+
+        printArrayList(integerArrayList);
+        printArrayList(shuffledArray);
+
+
+
+
+
+
+
+
+    }
+
+
+
+    public static ArrayList<Integer> shuffleArray(ArrayList<Integer> inputArray) {
+        ArrayList<Integer> buffer = (ArrayList<Integer>)inputArray.clone();
+        ArrayList<Integer> newArray = new ArrayList<>(inputArray.size());
+        Random random = new Random();
+        int size = inputArray.size();
+        for (int i = 0; i < size; i++) {
+            int nextIndex = random.nextInt(buffer.size());
+            newArray.add(buffer.get(nextIndex));
+            buffer.remove(nextIndex);
+        }
+
+        return newArray;
+
+    }
+
+    public static void printArrayList(ArrayList<Integer> integerArrayList) {
         integerArrayList.forEach(x -> System.out.print(x + " "));
-        System.out.print("");
-
-
+        System.out.println("");
     }
 
     public static int readNumber() {
